@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)https://127.0.0.1/hotelb/index.php?account_recovery&email=trantanstai@gmail.com&token=60ce8d603faeb22090a2b6607b8eba9 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="stylesheet" href="./HOTEL B - Home_files/bootstrap-icons.css"> 
+    <link href="./HOTEL B - Home_files/css2" rel="stylesheet">
+    <link href="./HOTEL B - Home_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./HOTEL B - Home_files/common.css">
+
+        <title>HOTEL B - Home</title>
+    <!--swiperjs  -->
+    <link rel="stylesheet" href="./HOTEL B - Home_files/swiper-bundle.min.css">
+    
+    <style>
+      .availability-form{
+        margin-top: -50px;
+        z-index: 2;
+        position: relative;
+      }
+      @media screen and (max-width: 575px) {
+            .availability-form{
+            margin-top: 25px;
+            padding: 0 35px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+
+      <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-5 fw-bold fs-3 h-font active" href="https://127.0.0.1/hotelb/index.php">HOTEL B</a>
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link me-2 active" href="https://127.0.0.1/hotelb/index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-2" href="https://127.0.0.1/hotelb/rooms.php">Room</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-2" href="https://127.0.0.1/hotelb/facilities.php">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-2" href="https://127.0.0.1/hotelb/contact.php">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-2" href="https://127.0.0.1/hotelb/about.php">About</a>
+                    </li>
+       
+                </ul>
+                <div class="d-flex">
+                        <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal" data-bs-target="#LoginModal">
+        Login
+    </button>
+    <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#RegisterModal">
+        Register
+    </button>                    
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="LoginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="login-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center">
+                            <i class="bi bi-person-circle fs-3 me-2"></i> User Login
+                        </h5>
+                        <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Email / Mobile</label>
+                            <input name="email_mob" type="text" class="form-control shadow-none" required="">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Password</label>
+                            <input name="pass" type="password" class="form-control shadow-none" required="">                     
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
+                            <button type="button" class="btn text-secondary text-decoration-none shadow-none p-0" data-bs-toggle="modal" data-bs-target="#forgotModal" data-bs-dismiss="modal">
+                                Forgot password ?
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal register -->
+    <div class="modal fade" id="RegisterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <form id="register-form">
+                <div class="modal-header">
+                    <h5 class="modal-title d-flex align-items-center">
+                            <i class="bi bi-person-lines-fill fs-3 me-2"></i> User Registration
+                    </h5>
+                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
+                        Note: Your details must match with your ID (Passport, driving license, etc.)
+                        that will be required during check-in.
+                    </span>
+                    <div class="container-fluid">
+                        <!-- register -->
+                        <div class="row">
+                            <div class="col-md-6 ps-0 mb-3">
+                                <label class="form-label">Name</label>
+                                <input name="name" type="text" class="form-control shadow-none" required="">
+                            </div>
+                            <div class="col-md-6 p-0 mb-3">
+                                <label class="form-label">Email</label>
+                                <input name="email" type="email" class="form-control shadow-none" required="">
+                       
+                            </div>
+                            <div class="col-md-6 ps-0 mb-3">
+                                <label class="form-label">Phone</label>
+                                <input name="phonenum" type="number" class="form-control shadow-none" required="">
+                       
+                            </div>
+                            <div class="col-md-6 p-0 mb-3">
+                                <label class="form-label">Picture</label>
+                                <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required="">
+                            </div>
+                            <div class="col-md-12 p-0 mb-3">
+                                <label class="form-label">Address</label>
+                                <textarea name="address" class="form-control shadow-none" rows="1" required=""></textarea>
+                            </div>
+                            <div class="col-md-6 ps-0 mb-3">
+                                <label class="form-label">Pincode</label>
+                                <input name="pincode" type="number" class="form-control shadow-none">
+                       
+                            </div>
+                            <div class="col-md-6 p-0">
+                                <label class="form-label">Date &amp; birth</label>
+                                <input name="dob" type="date" class="form-control shadow-none" required="">
+                            </div>
+                            <div class="col-md-6 ps-0 mb-3">
+                                <label class="form-label">Password</label>
+                                <input name="pass" type="password" class="form-control shadow-none" required="">
+                            </div>
+                            <div class="col-md-6 p-0 mb-3">
+                                <label class="form-label">Comfirm Password</label>
+                                <input name="cpass" type="password" class="form-control shadow-none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center my-1">
+                        <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
+                    </div>
+
+                    
+                </div>
+               
+            </form>
+        </div>
+        </div>
+    </div>
+    <!--fogot modal-->
+    <div class="modal fade" id="forgotModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="forgot-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center">
+                            <i class="bi bi-person-circle fs-3 me-2"></i> Forgot Password
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
+                                Note: A link will be sent to your email to reset password!
+                        </span>
+                        <div class="mb-4">
+                            <label class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control shadow-none" required="">
+                        </div>
+                        <div class="mb-2 text-end">
+                            <button type="button" class="btn shadow-none p-0 me-2" data-bs-toggle="modal" data-bs-target="#LoginModal" data-bs-dismiss="modal">
+                                CANCEL
+                            </button>
+                            <button type="submit" class="btn btn-dark shadow-none">SEND LINK</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>   
+    <!-- Carousel -->
+    <div class="container-fluid px-lg-4 mt-4">
+        <div class="swiper swiper-container swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden">
+                <div class="swiper-wrapper" id="swiper-wrapper-f6374233da3752a7" aria-live="off" style="transition-duration: 0ms;">
+                  
+
+
+
+
+                  <!-- <div class="swiper-slide">
+                      <img src="images/carousel/IMG_55677.png" class="w-100 d-block" />
+                  </div>
+                  <div class="swiper-slide">
+                      <img src="images/carousel/IMG_15372.png" class="w-100 d-block" />
+                  </div>
+                  <div class="swiper-slide">
+                      <img src="images/carousel/IMG_40905.png" class="w-100 d-block" />
+                  </div>
+                  <div class="swiper-slide">
+                      <img src="images/carousel/IMG_62045.png" class="w-100 d-block"/>
+                  </div>
+                  <div class="swiper-slide">
+                      <img src="images/carousel/IMG_93127.png" class="w-100 d-block" />
+                  </div>
+                  <div class="swiper-slide">
+                      <img src="images/carousel/IMG_99736.png" class="w-100 d-block"/>
+                  </div> -->
+               <div class="swiper-slide swiper-slide-next" role="group" aria-label="1 / 5" data-swiper-slide-index="0" style="width: 1064px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+  <img src="./HOTEL B - Home_files/IMG_94417.png" class="w-100 d-block">
+</div><div class="swiper-slide" role="group" aria-label="2 / 5" data-swiper-slide-index="1" style="width: 1064px; opacity: 1; transform: translate3d(-1064px, 0px, 0px); transition-duration: 0ms;">
+  <img src="./HOTEL B - Home_files/IMG_26081.png" class="w-100 d-block">
+</div><div class="swiper-slide" role="group" aria-label="3 / 5" data-swiper-slide-index="2" style="width: 1064px; opacity: 1; transform: translate3d(-2128px, 0px, 0px); transition-duration: 0ms;">
+  <img src="./HOTEL B - Home_files/IMG_95362.png" class="w-100 d-block">
+</div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="4 / 5" data-swiper-slide-index="3" style="width: 1064px; opacity: 1; transform: translate3d(-3192px, 0px, 0px); transition-duration: 0ms;">
+  <img src="./HOTEL B - Home_files/IMG_95326.png" class="w-100 d-block">
+</div><div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="5 / 5" data-swiper-slide-index="4" style="width: 1064px; opacity: 1; transform: translate3d(-4256px, 0px, 0px); transition-duration: 0ms;">
+  <img src="./HOTEL B - Home_files/IMG_27495.png" class="w-100 d-block">
+</div></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    </div>
+    <!-- check availability form -->
+    <div class="container availability-form">
+        <div class="row">
+            <div class="col-lg-12 bg-white shadow p-4 rounded">
+                <h5 class="mb-4">Check Booking availability</h5>
+                <form>
+                    <div class="row align-items-end">
+                        <div class="col-lg-3 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Check-in</label>
+                            <input type="date" class="form-control shadow-none">
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Check-Out</label>
+                            <input type="date" class="form-control shadow-none">
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Adult</label>
+                            <select class="form-select shadow-none">
+                                <option selected="">Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 mb-3">
+                            <label class="form-label" style="font-weight: 500;">Children</label>
+                            <select class="form-select shadow-none">
+                                <option selected="">Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-1 mb-lg-3 mt-2">
+                            <button type="submit" class="btn text-white shadow-none custom-bg">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Our Rooms -->
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">OUR ROOMS</h2>
+    <div class="container">
+        <div class="row">
+              <div class="col-lg-4 col-md-6 my-3">
+  <div class="card border-0 shadow" style="max-width: 350px; margin:auto;">
+      <img src="./HOTEL B - Home_files/IMG_68137.png" class="card-img-top">
+      <div class="card-body">
+          <h5>Super deluxe room</h5>
+          <h6 class="mb-4">1200000 ₫ per night</h6>
+          <div class="features mb-4">
+              <h6 class="mb-1">Features</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Bedroom
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Balcony
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Kitchen
+                </span>
+          </div>
+          <div class="facilities mb-4">
+              <h6 class="mb-1">Facilities</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Wifi
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  TV
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Radiator
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Air conditioner
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Fire
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Spa
+                </span>
+          </div>
+          <div class="guests mb-4">
+              <h6 class="mb-1">Guests</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap">
+              9 Adults
+              </span>
+              <span class="badge rounded-pill bg-light text-dark text-wrap">
+              10 Children
+              </span>
+          </div>
+          <div class="rating mb-4">
+          <h6 class="mb-1">Rating</h6>
+              <span class="badge rounded-fill bg-light">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              </span>
+          </div>
+          <div class="d-flex justify-content-evenly mb-2">
+              <a href="https://127.0.0.1/hotelb/index.php?account_recovery&amp;email=trantanstai@gmail.com&amp;token=60ce8d603faeb22090a2b6607b8eba9#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
+              <a href="https://127.0.0.1/hotelb/room_details.php?id=6" class="btn btn-sm btn-outline-dark shadow-none">More Details</a>
+
+          </div>
+      </div>
+  </div>
+</div>  <div class="col-lg-4 col-md-6 my-3">
+  <div class="card border-0 shadow" style="max-width: 350px; margin:auto;">
+      <img src="./HOTEL B - Home_files/IMG_42748.png" class="card-img-top">
+      <div class="card-body">
+          <h5>Diamond Room</h5>
+          <h6 class="mb-4">1000000 ₫ per night</h6>
+          <div class="features mb-4">
+              <h6 class="mb-1">Features</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Bedroom
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Balcony
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Kitchen
+                </span>
+          </div>
+          <div class="facilities mb-4">
+              <h6 class="mb-1">Facilities</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Wifi
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  TV
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Radiator
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Air conditioner
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Fire
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Spa
+                </span>
+          </div>
+          <div class="guests mb-4">
+              <h6 class="mb-1">Guests</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap">
+              4 Adults
+              </span>
+              <span class="badge rounded-pill bg-light text-dark text-wrap">
+              3 Children
+              </span>
+          </div>
+          <div class="rating mb-4">
+          <h6 class="mb-1">Rating</h6>
+              <span class="badge rounded-fill bg-light">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              </span>
+          </div>
+          <div class="d-flex justify-content-evenly mb-2">
+              <a href="https://127.0.0.1/hotelb/index.php?account_recovery&amp;email=trantanstai@gmail.com&amp;token=60ce8d603faeb22090a2b6607b8eba9#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
+              <a href="https://127.0.0.1/hotelb/room_details.php?id=5" class="btn btn-sm btn-outline-dark shadow-none">More Details</a>
+
+          </div>
+      </div>
+  </div>
+</div>  <div class="col-lg-4 col-md-6 my-3">
+  <div class="card border-0 shadow" style="max-width: 350px; margin:auto;">
+      <img src="./HOTEL B - Home_files/IMG_37261.png" class="card-img-top">
+      <div class="card-body">
+          <h5>Deluxe Room</h5>
+          <h6 class="mb-4">700000 ₫ per night</h6>
+          <div class="features mb-4">
+              <h6 class="mb-1">Features</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Bedroom
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Kitchen
+                </span>
+          </div>
+          <div class="facilities mb-4">
+              <h6 class="mb-1">Facilities</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Wifi
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  TV
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Air conditioner
+                </span><span class="badge rounded-pill bg-light text-dark text-wrap me-1 mb-1">
+                  Spa
+                </span>
+          </div>
+          <div class="guests mb-4">
+              <h6 class="mb-1">Guests</h6>
+              <span class="badge rounded-pill bg-light text-dark text-wrap">
+              3 Adults
+              </span>
+              <span class="badge rounded-pill bg-light text-dark text-wrap">
+              2 Children
+              </span>
+          </div>
+          <div class="rating mb-4">
+          <h6 class="mb-1">Rating</h6>
+              <span class="badge rounded-fill bg-light">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              </span>
+          </div>
+          <div class="d-flex justify-content-evenly mb-2">
+              <a href="https://127.0.0.1/hotelb/index.php?account_recovery&amp;email=trantanstai@gmail.com&amp;token=60ce8d603faeb22090a2b6607b8eba9#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
+              <a href="https://127.0.0.1/hotelb/room_details.php?id=4" class="btn btn-sm btn-outline-dark shadow-none">More Details</a>
+
+          </div>
+      </div>
+  </div>
+</div>            <div class="col-lg-12 text-center mt-5">
+                <a href="https://127.0.0.1/hotelb/rooms.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms &gt;&gt;&gt;</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Our facilities -->
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">OUR FACILITIES</h2>
+    <div class="container">
+        <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
+              <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+      <img src="./HOTEL B - Home_files/IMG_23900.svg" width="80px">
+      <h5 class="mt-3">Spa</h5>
+    </div>    <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+      <img src="./HOTEL B - Home_files/IMG_17759.svg" width="80px">
+      <h5 class="mt-3">Fire</h5>
+    </div>    <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+      <img src="./HOTEL B - Home_files/IMG_27375.svg" width="80px">
+      <h5 class="mt-3">Air conditioner</h5>
+    </div>    <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+      <img src="./HOTEL B - Home_files/IMG_58448.svg" width="80px">
+      <h5 class="mt-3">Radiator</h5>
+    </div>    <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+      <img src="./HOTEL B - Home_files/IMG_68921.svg" width="80px">
+      <h5 class="mt-3">TV</h5>
+    </div>            <!-- <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/wifi.svg" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/wifi.svg" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/wifi.svg" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div> 
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/wifi.svg" width="80px">
+                <h5 class="mt-3">Wifi</h5>
+            </div> -->
+            <div class="col-lg-12 text-center mt-5">
+                <a href="https://127.0.0.1/hotelb/facilities.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Facilities &gt;&gt;&gt;</a>
+            </div>
+        </div>
+    </div>
+    <!--testimonials-->
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">TESTIMONIALS</h2>
+    <div class="container mt-5">
+        <div class="swiper swiper-testimonials swiper-coverflow swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress">
+            <div class="swiper-wrapper mb-5" id="swiper-wrapper-ad3266b654892688" aria-live="polite" style="cursor: grab; transition-duration: 0ms; transform: translate3d(-312px, 0px, 0px);"><div class="swiper-slide bg-white p-4 swiper-slide-next" role="group" aria-label="1 / 3" data-swiper-slide-index="0" style="width: 312px; transition-duration: 0ms; transform: translate3d(0px, 0px, -200px) rotateX(0deg) rotateY(100deg) scale(1); z-index: -1;">
+                   <div class="profile d-flex align-items-center mb-3">
+                      <img src="./HOTEL B - Home_files/star-fill.svg" width="30px">
+                      <h6 class="m-0 ms-2">Random User1</h6>
+                   </div>
+                   <p>Your details must match with your ID (Passport, driving license, etc.)
+                        that will be required during check-in.
+                    </p>
+                    <div class="rating">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div><div class="swiper-slide bg-white p-4 swiper-slide-visible swiper-slide-prev" role="group" aria-label="2 / 3" data-swiper-slide-index="1" style="width: 312px; transition-duration: 0ms; transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(50deg) scale(1); z-index: 0;">
+                   <div class="profile d-flex align-items-center mb-3">
+                      <img src="./HOTEL B - Home_files/star-fill.svg" width="30px">
+                      <h6 class="m-0 ms-2">Random User1</h6>
+                   </div>
+                   <p>Your details must match with your ID (Passport, driving license, etc.)
+                        that will be required during check-in.
+                    </p>
+                    <div class="rating">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div><div class="swiper-slide bg-white p-4 swiper-slide-visible swiper-slide-active" role="group" aria-label="3 / 3" data-swiper-slide-index="2" style="width: 312px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1); z-index: 1;">
+                   <div class="profile d-flex align-items-center mb-3">
+                      <img src="./HOTEL B - Home_files/star-fill.svg" width="30px">
+                      <h6 class="m-0 ms-2">Random User1</h6>
+                   </div>
+                   <p>Your details must match with your ID (Passport, driving license, etc.)
+                        that will be required during check-in.
+                    </p>
+                    <div class="rating">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div>
+                
+                
+                
+              
+            </div>
+            <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-current="true"></span></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        <div class="col-lg-12 text-center mt-5">
+                <a href="https://127.0.0.1/hotelb/about.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know more &gt;&gt;&gt;</a>
+        </div>
+    </div>
+    <!--Reach us-->
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">REACH US</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
+                <iframe class="w-100 rounded" src="./HOTEL B - Home_files/embed.html" height="450" loading="lazy">
+                </iframe>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="bg-white p-4 rounded mb-4">
+                    <h5>Call us</h5>
+                    <a href="tel: +8433339999" class="d-inline-bock mb-2 text-decoration-none text-dark">
+                    <i class="bi bi-telephone-fill"></i> +8433339999                    </a>
+                    <br>
+                      <a href="tel: +8428262826" class="d-inline-bock text-decoration-none text-dark">
+  <i class="bi bi-telephone-fill"></i> +8428262826
+  </a>                </div>
+                <div class="bg-white p-4 rounded mb-4">
+                    <h5>Follow us</h5>
+                    <a href="https://www.twitter.com/" class="d-inline-block mb-3 ">
+  <span class="badge bg-light text-dark fs-6 p-2">
+  <i class="bi bi-twitter me-1"></i> Twitter
+  </span>
+</a>
+<br>                    
+                    <a href="https://www.facebook.com/" class="d-inline-block mb-3 ">
+                       <span class="badge bg-light text-dark fs-6 p-2">
+                       <i class="bi bi-facebook me-1"></i> Facebook
+                       </span>
+                    </a>
+                    <br>
+                    <a href="https://www.instagram.com/" class="d-inline-block mb-3 ">
+                       <span class="badge bg-light text-dark fs-6 p-2">
+                       <i class="bi bi-instagram me-1"></i> Instagram
+                       </span>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Password reset modal and code-->
+    <div class="modal fade" id="recoveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="recovery-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center">
+                            <i class="bi bi-shield-lock fs-3 me-2"></i> Set up New Password
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-4">
+                            <label class="form-label">New Password</label>
+                            <input name="pass" type="password" class="form-control shadow-none" required="">
+                            <input type="hidden" name="email">
+                            <input type="hidden" name="token">
+                        </div>
+                        <div class="mb-2 text-end">
+                            <button type="button" class="btn shadow-none me-2" data-bs-dismiss="modal">CANCEL</button>
+                            <button type="submit" class="btn btn-dark shadow-none">SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    
+    <div class="container-fluid bg-white mt-5">
+        <div class="row">
+            <div class="col-lg-4 p-4">
+                <h3 class="h-font fw-bold fs-3 mb-2">HOTEL B</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus pariatur cum, 
+                    dolorum ipsum aperiam corrupti alias, quia minima dolorem eaque unde, quibusdam iusto 
+                    explicabo ut est nam autem quo!                </p>
+            </div>
+            <div class="col-lg-4 p-4">
+                <h5 class="mb-3">Link</h5>
+                <a href="https://127.0.0.1/hotelb/index.php" class="d-inline-block mb-2 text-dark text-decoration-none">Home</a> <br>
+                <a href="https://127.0.0.1/hotelb/rooms.php" class="d-inline-block mb-2 text-dark text-decoration-none">Rooms</a> <br>
+                <a href="https://127.0.0.1/hotelb/facilities.php" class="d-inline-block mb-2 text-dark text-decoration-none">Facilities</a> <br>
+                <a href="https://127.0.0.1/hotelb/contact.php" class="d-inline-block mb-2 text-dark text-decoration-none">Contact us</a> <br>
+                <a href="https://127.0.0.1/hotelb/about.php" class="d-inline-block mb-2 text-dark text-decoration-none">About</a> <br>
+            </div>
+            <div class="col-lg-4 p-4">
+                <h5 class="mb-3">Follow us</h5>
+                <a href="https://www.twitter.com/" class="d-inline-bock text-dark text-decoration-none mb-2 "> 
+    <i class="bi bi-twitter me-1"></i> Twitter
+</a>
+<br>               
+                <a href="https://www.facebook.com/" class="d-inline-bock text-dark text-decoration-none mb-2 "> 
+                    <i class="bi bi-facebook me-1"></i> Facebook
+                </a>
+                <br>
+                <a href="https://www.instagram.com/" class="d-inline-bock text-dark text-decoration-none"> 
+                    <i class="bi bi-instagram me-1"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </div>
+    <h6 class="text-center bg-dark text-white p-3 m-0">Design and Developed by Me</h6>
+
+    <script src="./HOTEL B - Home_files/bootstrap.bundle.min.js.tải xuống" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+
+    <script>
+        function alert(type,msg,position='body')
+        {
+            let bs_class = (type == 'success') ? 'alert-success' : 'alert-danger';
+            let element = document.createElement('div');
+            element.innerHTML = `
+                <div class="alert ${bs_class} alert-dismissible fade show" role="alert">
+                    <strong class="me-3">${msg}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            if(position=='body'){
+                document.body.append(element);
+                element.classList.add('custom-alert');
+            }
+            else{
+                document.getElementById(position).appendChild(element);
+            }
+        
+            setTimeout(remAlert,2000);//set time alert
+        }
+        function remAlert(){
+            document.getElementsByClassName('alert')[0].remove();
+        }
+        //set class "active" vào các class của nav khi load trang tương ứng
+        function setActive()
+        {
+            let navbar = document.getElementById('nav-bar');
+            let a_tags = navbar.getElementsByTagName('a');
+
+            for(i=0; i<a_tags.length; i++){
+               let file = a_tags[i].href.split('/').pop();
+               let file_name = file.split('.')[0];
+
+               if(document.location.href.indexOf(file_name)>=0){
+                a_tags[i].classList.add('active');
+               }
+            }
+        }
+        //
+        let register_form = document.getElementById('register-form');
+        register_form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            let data = new FormData();
+
+            data.append('name',register_form.elements['name'].value);
+            data.append('email',register_form.elements['email'].value);
+            data.append('phonenum',register_form.elements['phonenum'].value);
+            data.append('address',register_form.elements['address'].value);
+            data.append('pincode',register_form.elements['pincode'].value);
+            data.append('dob',register_form.elements['dob'].value);
+            data.append('pass',register_form.elements['pass'].value);
+            data.append('cpass',register_form.elements['cpass'].value);
+            data.append('profile',register_form.elements['profile'].files[0]);
+            data.append('register','');
+
+            var myModal = document.getElementById("RegisterModal");
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/login_register.php", true);
+
+            xhr.onload = function () {
+               
+                if(this.responseText == 'pass_mismatch')
+                {
+                    alert('error',"Password Mismatch!");
+                }
+                else if(this.responseText == 'email_already'){
+                    alert('error',"Email Already Registered!");
+                }
+                else if(this.responseText == 'phone_already'){
+                    alert('error',"Phone numbers Already Registered!");
+                }
+                else if(this.responseText == 'inv_img'){
+                    alert('error',"Only JPG, WEBP & PNG images is allowed!");
+                }
+                else if(this.responseText == 'upd_failed'){
+                    alert('error',"Image Upload Failed!");
+                }
+                else if(this.responseText == 'mail_failed'){
+                    alert('error',"Cannot send confirmation email!, Server down!");
+                }
+                else if(this.responseText == 'ins_failed'){
+                    alert("error","Registration Failed, Server down!");
+                }
+                else{
+                    alert('success',"Registration successful. Comfirmation link send to email!");
+                    
+                    register_form.reset();
+
+                }
+            };
+            xhr.send(data);
+
+
+        });
+        //
+        let login_form = document.getElementById('login-form');
+        login_form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            let data = new FormData();
+
+            data.append('email_mob',login_form.elements['email_mob'].value);
+            data.append('pass',login_form.elements['pass'].value);
+            data.append('login','');
+
+            var myModal = document.getElementById("LoginModal");
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/login_register.php", true);
+
+            var log_pass = 'Password Invalid !';
+            xhr.onload = function () {
+                if(this.responseText == 'inv_email_mob')
+                {
+                    alert('error',"Invalid Email or Mobile Number!");
+                }
+                else if(this.responseText == 'is_verified'){
+                    alert('error',"Email is not Verified!");
+                }
+                else if(this.responseText == 'inactive'){
+                    alert('error',"Account Suspended! Please contact Admin.");
+                }
+                else if(this.responseText == 'invalid_pass'){
+                    alert('error',"Pasword invalid!");
+                }
+                else{
+                    window.location = window.location.pathname;
+                }
+            };
+            xhr.send(data);
+        });
+        //
+        let forgot_form = document.getElementById('forgot-form');
+        forgot_form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            let data = new FormData();
+
+            data.append('email',forgot_form.elements['email'].value);
+            data.append('forgot_pass','');
+
+            var myModal = document.getElementById("forgotModal");
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/login_register.php", true);
+
+           
+
+            xhr.onload = function () {
+                if(this.responseText == 2)//inv_email
+                {
+                    alert('error',"Invalid Email!");
+                    
+                }
+                else if(this.responseText == 3){//'not_verified'
+                    alert('error',"Email is not Verified! Please contact Admin.");
+                }
+                else if(this.responseText == 4){
+                    alert('error',"Account Suspended! Please contact Admin.");
+                }
+                else if(this.responseText == 5){//echo 'mail_failed';
+                    alert('error',"Cannot send email. Server down!");
+                }
+                else if(this.responseText == 6){//'up_failed'
+                    alert('error',"Account recovery failed. Server down!");
+                }
+                else{
+                    alert('success',"Reset link send to email1");
+                    forgot_form.reset();
+                    
+                }
+            };
+            xhr.send(data);
+        });
+
+        setActive();
+    </script>
+   <div class="alert alert-danger alert-dismissible fade show custom-alert" role="alert">
+    <strong class="me-3">Invalid or Expire Link !</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div> 
+
+    <script src="./HOTEL B - Home_files/swiper-bundle.min.js.tải xuống"></script>
+   
+    <!-- Swiperjs -->
+    <script>
+        var swiper = new Swiper(".swiper-container", {
+          spaceBetween: 30,
+          effect: "fade",
+          loop: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          }
+        });
+        var swiper = new Swiper(".swiper-testimonials", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          slidesPerView: "3",
+          loop: true,
+          coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            // slideShadows: true,
+            slideShadows: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+          breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            }
+          }
+        });
+
+        //recover account
+        let recovery_form = document.getElementById('recovery-form');
+        recovery_form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            let data = new FormData();
+
+            data.append('email',recovery_form.elements['email'].value);
+            data.append('token',recovery_form.elements['token'].value);
+            data.append('pass',recovery_form.elements['email'].value);
+            data.append('recover_user','');
+
+            var myModal = document.getElementById("recoveryModal");
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/login_register.php", true);
+
+           
+
+            xhr.onload = function () {
+                if(this.responseText == 2){//'failed'
+                    alert('error',"Account reset failed!");
+                }
+                else{
+                    alert('success',"Account Reset Succesful");
+                    recovery_form.reset(); 
+                }
+            };
+            xhr.send(data);
+        });
+
+    </script>
+
+  
+</body></html>
